@@ -19,7 +19,9 @@ if (!$pigeon) {
 		<p>
 		<h3 style="color: green">公告：</h3>
 		</p>
-		<p>提示：本站头像显示服务由<abbr title="Gravatar是Globally Recognized Avatar的缩写,是gravatar推出的一项服务，意为“全球通用头像”">Gravatar</abbr>提供，请先注册Gravatar后以便显示头像！</p>
+		<p>恭喜！经过了我的不懈努力，现在服务器已经前移到了我的个人小主机上！</p>
+		<p>这意味着以后本站可以24小时运行而不必停止了！</p>
+		<p>本站头像显示服务由<abbr title="Gravatar是Globally Recognized Avatar的缩写,是gravatar推出的一项服务，意为“全球通用头像”">Gravatar</abbr>提供，请先注册Gravatar后以便显示头像！</p>
 		<a href="https://gravatar.com/" target="_blank">https://gravatar.com/</a>
 		<p>此外，注册并登陆了之后就可以发表消息了哦~</p>
 	</div>
@@ -365,96 +367,61 @@ if (!$pigeon) {
 		isblur = false;
 		document.title = pagetitle;
 	}
+
+	// (function($) {
+	// 	$.fn.snow = function(options) {
+	// 		var $flake = $('<div id="snowbox" />').css({
+	// 				'position': 'absolute',
+	// 				'z-index': '9999',
+	// 				'top': '-50px'
+	// 			}).html('&#10052;'),
+	// 			documentHeight = $(document).height(),
+	// 			documentWidth = $(document).width(),
+	// 			defaults = {
+	// 				minSize: 10,
+	// 				maxSize: 20,
+	// 				newOn: 1000,
+	// 				flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+	// 			},
+	// 			options = $.extend({}, defaults, options);
+	// 		var interval = setInterval(function() {
+	// 			var startPositionLeft = Math.random() * documentWidth - 100,
+	// 				startOpacity = 0.5 + Math.random(),
+	// 				sizeFlake = options.minSize + Math.random() * options.maxSize,
+	// 				endPositionTop = documentHeight - 200,
+	// 				endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+	// 				durationFall = documentHeight * 10 + Math.random() * 5000;
+	// 			$flake.clone().appendTo('body').css({
+	// 				left: startPositionLeft,
+	// 				opacity: startOpacity,
+	// 				'font-size': sizeFlake,
+	// 				color: options.flakeColor
+	// 			}).animate({
+	// 				top: endPositionTop,
+	// 				left: endPositionLeft,
+	// 				opacity: 0.2
+	// 			}, durationFall, 'linear', function() {
+	// 				$(this).remove()
+	// 			});
+	// 		}, options.newOn);
+	// 	};
+	// })(jQuery);
+	// $(function() {
+	// 	$.fn.snow({
+	// 		minSize: 5,
+	// 		/* 定义雪花最小尺寸 */
+	// 		maxSize: 50,
+	// 		/* 定义雪花最大尺寸 */
+	// 		newOn: 800 /* 定义密集程度，数字越小越密集 */
+	// 	});
+	// });
 </script>
-<div id="aplayer">你的浏览器不支持Aplayer，你是否开启了javascript?</div>
-<script>
-	const ap = new APlayer({
-		container: document.getElementById('aplayer'),
-		fixed: true, //是否附着页面底部，否为false
-		autoplay: true, //是否自动播放，否为false,移动端不能生效
-		volume: 0.6, //初始音量（0~1）
-		lrcType: 3, //歌词模式（1、HTML模式 2、js模式 3、lrc文件模式）
-		mutex: true, //互斥模式：阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
-		order: 'random', //音频循环顺序（'list'：顺序, 'random'：随机）
-		preload: 'auto', //预加载（'none'：不预加载, 'metadata'：元数据, 'auto'：自动）
-		listFolded: false, //列表默认折叠，开启为true
-		theme: '#EE8243', //主题颜色
-		audio: [{
-				name: '风的小径',
-				artist: '万能日记',
-				url: 'https://music.163.com/song/media/outer/url?id=1455273374',
-				cover: 'http://p2.music.126.net/Z47IFngOl_t1pVCh1PHL_w==/109951165050432631.jpg',
-				lrc: '/pigeon/aplayer.lrc/artistid_30600219/no.lrc',
-				theme: '#E5ECEE'
-			},
-			{
-				name: '这个深海是你的眼眸',
-				artist: '万能日记',
-				url: 'https://music.163.com/song/media/outer/url?id=1458534239',
-				cover: 'http://p1.music.126.net/7t_ZWcfr60Z-kcP_9sspuw==/109951165093901873.jpg',
-				lrc: '/pigeon/aplayer.lrc/artistid_30600219/no.lrc',
-				theme: '#D9D4D0'
-			},
-			{
-				name: '时间的海伴回忆卷来咸咸海风',
-				artist: '万能日记',
-				url: 'https://music.163.com/song/media/outer/url?id=1878369123',
-				cover: 'http://p2.music.126.net/F-h9NT_PWgg50zZDUBgHVQ==/109951166403097623.jpg',
-				lrc: '/pigeon/aplayer.lrc/artistid_30600219/no.lrc',
-				theme: '#5693C9'
-			},
-			{
-				name: '午后限定舒适',
-				artist: '万能日记',
-				url: 'https://music.163.com/song/media/outer/url?id=1866506942',
-				cover: 'http://p1.music.126.net/522yb7peGavYP5Opvk5Xhg==/109951166246901564.jpg',
-				lrc: '/pigeon/aplayer.lrc/artistid_30600219/no.lrc',
-				theme: '#889955'
-			},
-			{
-				name: 'Sincerely(TV动画《紫罗兰永恒花园》片头曲 ；TVアニメ「ヴァイオレット・エヴァーガーデン」OPテーマ)',
-				artist: 'TRUE',
-				url: 'https://music.163.com/song/media/outer/url?id=534065323',
-				cover: 'http://p2.music.126.net/vDkjhkNurE6T8KzfYyZBCQ==/109951165822303244.jpg',
-				lrc: '/pigeon/aplayer.lrc/534065323.lrc',
-				theme: '#FFFFFE'
-			},
-			{
-				name: 'いつもずっと(永远)',
-				artist: '水瀬いのり',
-				url: 'https://music.163.com/song/media/outer/url?id=469508429',
-				cover: 'http://p2.music.126.net/l6ugT-W8kVywTzgW5p7Pjw==/109951163386653469.jpg',
-				lrc: '/pigeon/aplayer.lrc/469508429.lrc',
-				theme: '#8ACED2'
-			},
-			{
-				name: 'この声が届きますように',
-				artist: 'nayuta',
-				url: 'https://music.163.com/song/media/outer/url?id=475277772',
-				cover: 'http://p2.music.126.net/ehww_Cenjebc4U9daq8fkw==/18638921115965611.jpg',
-				lrc: '/pigeon/aplayer.lrc/475277772.lrc',
-				theme: '#FFC6C6'
-			},
-			{
-				name: '深海少女',
-				artist: 'のぶなが',
-				url: 'https://music.163.com/song/media/outer/url?id=857619',
-				cover: 'http://p1.music.126.net/tpqIHupzaqlFaHawnUYlOA==/18722483998223156.jpg',
-				lrc: '/pigeon/aplayer.lrc/857619.lrc',
-				theme: '#8889A7'
-			},
-			{
-				name: '人形ノ涙',
-				artist: '仲村芽衣子',
-				url: 'https://music.163.com/song/media/outer/url?id=631060',
-				cover: 'http://p1.music.126.net/qV84dxzec0u1S-9sVGNQNA==/109951165781915404.jpg',
-				lrc: '/pigeon/aplayer.lrc/631060.lrc',
-				theme: '#563854'
-			}
-		]
-	});
-</script>
-<meting-js fixed="true" server="netease" type="playlist" id="60198"></meting-js>
+    <!-- require APlayer -->
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<meting-js server="netease" type="playlist" id="7123866465" autoplay="true" order="random" fixed="true">
+</meting-js>
 </body>
 
 </html>
