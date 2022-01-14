@@ -7,6 +7,7 @@ if (!$pigeon) {
 <html>
 
 <head>
+	<!-- 引入头部css和js -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=11">
@@ -16,7 +17,6 @@ if (!$pigeon) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
-	<!-- <link rel="stylesheet" href="http://lab.mkblog.cn/sweetalert/dist/sweetalert.css"> -->
 	<link rel="stylesheet" href="/pigeon/template/<?php echo $pigeon->config['template']; ?>/css/style.css">
 	<link rel="shortcut icon" href="/pigeon/favicon.png">
 
@@ -30,6 +30,7 @@ if (!$pigeon) {
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+	<!-- 使用一言api -->
 	<script>
 		fetch('https://v1.hitokoto.cn')
 			.then(response => response.json())
@@ -39,7 +40,6 @@ if (!$pigeon) {
 				hitokoto.innerText = data.hitokoto
 			})
 			.catch(console.error)
-			.hitokoto.innerText = '加载失败 :('
 	</script>
 
 	<?php

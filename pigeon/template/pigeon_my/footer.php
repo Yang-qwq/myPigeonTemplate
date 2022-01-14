@@ -15,12 +15,11 @@ if (!$pigeon) {
 	</div>
 	</p>
 	<hr>
+
+	<!-- 公告以及提示板块 -->
 	<div class="row message">
 		<p>
 		<h3 style="color: green">公告：</h3>
-		</p>
-		<p>最近小水管子（指服务器）总是不稳定，有的时候可能会有异常的错误情况，请各位谅解！</p>
-		<p></p>
 		<p>本站头像显示服务由<abbr title="Gravatar是Globally Recognized Avatar的缩写,是gravatar推出的一项服务，意为“全球通用头像”">Gravatar</abbr>提供，请先注册Gravatar后以便显示头像！</p>
 		<a href="https://gravatar.com/" target="_blank">https://gravatar.com/</a>
 		<p>此外，注册并登陆了之后就可以发表消息了哦~</p>
@@ -33,6 +32,7 @@ if (!$pigeon) {
 		<p>此外，您的密码会被使用<abbr title="一种不可逆的概要算法，例如MD5，sha256等">摘要算法</abbr>保存，也不必在意管理员窃取密码的问题</p>
 		<p></p>
 	</div>
+
 	<?php
 	if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
 	?>
@@ -79,6 +79,7 @@ if (!$pigeon) {
 <div class="row">
 	<div class="col-sm-12">
 		<hr>
+		<!-- 版权以及友链区域 -->
 		<p>&copy; <?php echo date("Y"); ?> <?php echo $pigeon->config['sitename']; ?> | Powered by <a href="https://github.com/kasuganosoras/Pigeon" target="_blank">Pigeon</a></p>
 		<p>友链交换：</p>
 		<p><a href="https://net-r-studio.top/">NRS</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://blog.1107-1108.top/">1107の个人博客</a></p>
@@ -118,6 +119,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
+				// 修改：使用swal
 				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
@@ -143,6 +145,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
+				// 修改：使用swal
 				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
@@ -210,11 +213,13 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
+				// 修改：使用swal
 				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
 				storage = '';
+				// 修改：使用swal
 				swal("消息删除成功！", "", "success")
 				RefreshHome();
 				return;
@@ -234,11 +239,13 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
+				// 修改：使用swal
 				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
 				storage = '';
+				// 修改：使用swal
 				swal("消息状态修改成功！", "", "success")
 				RefreshHome();
 				return;
@@ -246,6 +253,7 @@ if (!$pigeon) {
 		});
 	}
 
+	// 禁用不再需要的函数
 	// function SuccessMsg(text) {
 	// 	$("#alert_success").html(dismiss_success + text + "</div>");
 	// 	$("#alert_success").fadeIn(500);
@@ -291,6 +299,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
+				// 修改：使用swal
 				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
@@ -314,6 +323,7 @@ if (!$pigeon) {
 					}
 					showmsg('<p>请输入内容</p><p><textarea class="form-control newpost editpost" placeholder="在想些什么？" id="editpost">' + data.content.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;").replace(" ", "&nbsp;") + '</textarea></p><table style="width: 100%;margin-bottom: 12px;"><tr><td style="width: 40%;"><select class="form-control" id="edit_ispublic"><option value="0"' + public_0 + '>所有人可见</option><option value="1"' + public_1 + '>登录后可见</option><option value="2"' + public_2 + '>仅自己可见</option></select></td><td><button class="btn btn-primary pull-right" onclick="submitedit()"><i class="fa fa-twitter"></i>&nbsp;&nbsp;保存修改</button></td></tr></table>');
 				} catch (e) {
+					// 修改：使用swal
 					swal("错误！", e.message, "error")
 				}
 				return;
@@ -339,6 +349,7 @@ if (!$pigeon) {
 				$("#editpost").val("");
 				closemsg();
 				storage = '';
+				// 修改：使用swal
 				swal("消息内容保存成功！", "", "success")
 				RefreshHome();
 				return;
@@ -367,59 +378,12 @@ if (!$pigeon) {
 		isblur = false;
 		document.title = pagetitle;
 	}
-
-	// (function($) {
-	// 	$.fn.snow = function(options) {
-	// 		var $flake = $('<div id="snowbox" />').css({
-	// 				'position': 'absolute',
-	// 				'z-index': '9999',
-	// 				'top': '-50px'
-	// 			}).html('&#10052;'),
-	// 			documentHeight = $(document).height(),
-	// 			documentWidth = $(document).width(),
-	// 			defaults = {
-	// 				minSize: 10,
-	// 				maxSize: 20,
-	// 				newOn: 1000,
-	// 				flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
-	// 			},
-	// 			options = $.extend({}, defaults, options);
-	// 		var interval = setInterval(function() {
-	// 			var startPositionLeft = Math.random() * documentWidth - 100,
-	// 				startOpacity = 0.5 + Math.random(),
-	// 				sizeFlake = options.minSize + Math.random() * options.maxSize,
-	// 				endPositionTop = documentHeight - 200,
-	// 				endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
-	// 				durationFall = documentHeight * 10 + Math.random() * 5000;
-	// 			$flake.clone().appendTo('body').css({
-	// 				left: startPositionLeft,
-	// 				opacity: startOpacity,
-	// 				'font-size': sizeFlake,
-	// 				color: options.flakeColor
-	// 			}).animate({
-	// 				top: endPositionTop,
-	// 				left: endPositionLeft,
-	// 				opacity: 0.2
-	// 			}, durationFall, 'linear', function() {
-	// 				$(this).remove()
-	// 			});
-	// 		}, options.newOn);
-	// 	};
-	// })(jQuery);
-	// $(function() {
-	// 	$.fn.snow({
-	// 		minSize: 5,
-	// 		/* 定义雪花最小尺寸 */
-	// 		maxSize: 50,
-	// 		/* 定义雪花最大尺寸 */
-	// 		newOn: 800 /* 定义密集程度，数字越小越密集 */
-	// 	});
-	// });
 </script>
 <!-- require APlayer -->
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <!-- require MetingJS -->
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<!-- MetingJS使用 看自己决定放置的位置 -->
 <meting-js server="netease" type="playlist" id="7123866465" autoplay="true" order="random" fixed="true">
 </meting-js>
 </body>

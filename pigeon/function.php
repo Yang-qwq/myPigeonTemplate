@@ -242,7 +242,7 @@ class Pigeon {
 				}
 			}
 			$pstatus = $rs['public'] == '2' ? "&nbsp;&nbsp;<code>仅自己可见</code>" : "";
-			$html .= "<tr><td class='headimg'><img src='https://gravatar.zeruns.tech/avatar/" . md5($this->getUserInfo($rs['author'])['email']) . "?s=64'</td><td class='thread'><p><small>{$rs['author']} 发表于" . $this->getDateFormat($rs['time']) . $pstatus . str_replace("{id}", $id, $delete) . "</small></p>";
+			$html .= "<tr><td class='headimg'><img src='https://sdn.geekzu.org/avatar/" . md5($this->getUserInfo($rs['author'])['email']) . "?s=64'</td><td class='thread'><p><small>{$rs['author']} 发表于" . $this->getDateFormat($rs['time']) . $pstatus . str_replace("{id}", $id, $delete) . "</small></p>";
 			$html .= "<div class='message'>" . $Markdown->text($rs['content']) . "</div></td></tr>";
 			$html .= "</table></div>";
 			return $html;
