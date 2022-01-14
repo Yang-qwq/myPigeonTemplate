@@ -19,8 +19,8 @@ if (!$pigeon) {
 		<p>
 		<h3 style="color: green">公告：</h3>
 		</p>
-		<p>恭喜！经过了我的不懈努力，现在服务器已经前移到了我的个人小主机上！</p>
-		<p>这意味着以后本站可以24小时运行而不必停止了！</p>
+		<p>最近小水管子（指服务器）总是不稳定，有的时候可能会有异常的错误情况，请各位谅解！</p>
+		<p></p>
 		<p>本站头像显示服务由<abbr title="Gravatar是Globally Recognized Avatar的缩写,是gravatar推出的一项服务，意为“全球通用头像”">Gravatar</abbr>提供，请先注册Gravatar后以便显示头像！</p>
 		<a href="https://gravatar.com/" target="_blank">https://gravatar.com/</a>
 		<p>此外，注册并登陆了之后就可以发表消息了哦~</p>
@@ -37,7 +37,7 @@ if (!$pigeon) {
 	if (isset($_SESSION['user']) && isset($_SESSION['email'])) {
 	?>
 		<center>
-			<img src="https://gravatar.zeruns.tech/avatar/<?php echo md5($_SESSION['email']); ?>?s=256" class="loginhead">
+			<img src="https://sdn.geekzu.org/avatar/<?php echo md5($_SESSION['email']); ?>?s=256" class="loginhead">
 		</center>
 		<h3><?php echo $_SESSION['user']; ?></h3>
 		<p>欢迎回来！<a href="?s=logout&seid=<?php echo isset($_SESSION['seid']) ? $_SESSION['seid'] : ""; ?>">[退出登录]</a></p>
@@ -118,7 +118,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
-				alert("错误：" + htmlobj.responseText);
+				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
@@ -143,7 +143,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
-				alert("错误：" + htmlobj.responseText);
+				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
@@ -210,12 +210,12 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
-				ErrorMsg("错误：" + htmlobj.responseText);
+				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
 				storage = '';
-				SuccessMsg("消息删除成功！");
+				swal("消息删除成功！", "", "success")
 				RefreshHome();
 				return;
 			}
@@ -234,27 +234,27 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
-				ErrorMsg("错误：" + htmlobj.responseText);
+				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
 				storage = '';
-				SuccessMsg("消息状态修改成功！");
+				swal("消息状态修改成功！", "", "success")
 				RefreshHome();
 				return;
 			}
 		});
 	}
 
-	function SuccessMsg(text) {
-		$("#alert_success").html(dismiss_success + text + "</div>");
-		$("#alert_success").fadeIn(500);
-	}
+	// function SuccessMsg(text) {
+	// 	$("#alert_success").html(dismiss_success + text + "</div>");
+	// 	$("#alert_success").fadeIn(500);
+	// }
 
-	function ErrorMsg(text) {
-		$("#alert_danger").html(dismiss_danger + text + "</div>");
-		$("#alert_danger").fadeIn(500);
-	}
+	// function ErrorMsg(text) {
+	// 	$("#alert_danger").html(dismiss_danger + text + "</div>");
+	// 	$("#alert_danger").fadeIn(500);
+	// }
 	/* Pigeon 1.0.170 Update start */
 	var editid = '';
 	var isopenmsgbox = false;
@@ -291,7 +291,7 @@ if (!$pigeon) {
 			},
 			async: true,
 			error: function() {
-				ErrorMsg("错误：" + htmlobj.responseText);
+				swal("服务器出现错误！", htmlobj.responseText, "error")
 				return;
 			},
 			success: function() {
@@ -314,7 +314,7 @@ if (!$pigeon) {
 					}
 					showmsg('<p>请输入内容</p><p><textarea class="form-control newpost editpost" placeholder="在想些什么？" id="editpost">' + data.content.replace("<", "&lt;").replace(">", "&gt;").replace("&", "&amp;").replace(" ", "&nbsp;") + '</textarea></p><table style="width: 100%;margin-bottom: 12px;"><tr><td style="width: 40%;"><select class="form-control" id="edit_ispublic"><option value="0"' + public_0 + '>所有人可见</option><option value="1"' + public_1 + '>登录后可见</option><option value="2"' + public_2 + '>仅自己可见</option></select></td><td><button class="btn btn-primary pull-right" onclick="submitedit()"><i class="fa fa-twitter"></i>&nbsp;&nbsp;保存修改</button></td></tr></table>');
 				} catch (e) {
-					ErrorMsg("错误：" + e.message);
+					swal("错误！", e.message, "error")
 				}
 				return;
 			}
@@ -339,7 +339,7 @@ if (!$pigeon) {
 				$("#editpost").val("");
 				closemsg();
 				storage = '';
-				SuccessMsg("消息内容保存成功！");
+				swal("消息内容保存成功！", "", "success")
 				RefreshHome();
 				return;
 			}
@@ -416,10 +416,10 @@ if (!$pigeon) {
 	// 	});
 	// });
 </script>
-    <!-- require APlayer -->
-    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-    <!-- require MetingJS -->
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<!-- require APlayer -->
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 <meting-js server="netease" type="playlist" id="7123866465" autoplay="true" order="random" fixed="true">
 </meting-js>
 </body>

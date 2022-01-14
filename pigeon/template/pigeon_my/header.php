@@ -16,17 +16,19 @@ if (!$pigeon) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
-	</script>
+	<!-- <link rel="stylesheet" href="http://lab.mkblog.cn/sweetalert/dist/sweetalert.css"> -->
 	<link rel="stylesheet" href="/pigeon/template/<?php echo $pigeon->config['template']; ?>/css/style.css">
-	</script>
 	<link rel="shortcut icon" href="/pigeon/favicon.png">
+
 	<title><?php echo $pigeon->config['sitename']; ?></title>
+
 	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 	<script src="/pigeon/template/<?php echo $pigeon->config['template']; ?>/js/highlight.pack.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script>
 		fetch('https://v1.hitokoto.cn')
@@ -37,6 +39,7 @@ if (!$pigeon) {
 				hitokoto.innerText = data.hitokoto
 			})
 			.catch(console.error)
+			.hitokoto.innerText = '加载失败 :('
 	</script>
 
 	<?php
