@@ -1,13 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700,500);
 
-@font-face {
+/* @font-face {
     font-family: custom;
     src: url('/pigeon/main.ttf');
-}
+} */
 
 body {
     font-family: custom, 'Raleway', sans-serif;
     font-weight: 400;
+    /* background-image: url(https://api.mz-moe.cn/img.php);
+    backdrop-filter: saturate(180%) blur(10px); // fixed bug here
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
 }
 
 .hljs {
